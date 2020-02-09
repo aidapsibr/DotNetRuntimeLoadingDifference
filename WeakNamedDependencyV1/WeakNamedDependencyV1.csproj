@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Dependency</AssemblyName>
+    <Version>1.0.0</Version>
+    <RootNamespace>DependencyNamespace</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FilesToCopy Include="$(OutputPath)\Dependency.dll">
+      <NewFilename>DependencyV1.dll</NewFilename>
+    </FilesToCopy>
+  </ItemGroup>
+
+  <Target Name="CopyFiles"
+          Inputs="@(FilesToCopy)"
+          Outputs="@(FilesToCopy->'%(RootDir)%(Directory)%(NewFilename)')"
+          AfterTargets="Build">
+    <Message Text="Renaming output"/>
+    <Copy SourceFiles="@(FilesToCopy)"
+          DestinationFiles="@(FilesToCopy->'%(RootDir)%(Directory)%(NewFilename)')"/>
+  </Target>
+
+</Project>

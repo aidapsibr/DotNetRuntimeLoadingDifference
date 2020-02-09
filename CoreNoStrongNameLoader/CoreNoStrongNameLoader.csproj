@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Dependency, Version=3.0.0.0">
+      <HintPath>..\WeakNamedDependencyV3\bin\$(Configuration)\netstandard2.0\DependencyV3.dll</HintPath>
+      <SpecificVerion>true</SpecificVerion>
+      <Aliases>v3</Aliases>
+    </Reference>
+    <Reference Include="Dependency, Version=1.0.0.0">
+      <HintPath>..\WeakNamedDependencyV1\bin\$(Configuration)\netstandard2.0\DependencyV1.dll</HintPath>
+      <SpecificVerion>true</SpecificVerion>
+      <Aliases>v1</Aliases>
+    </Reference>
+  </ItemGroup>
+
+</Project>
